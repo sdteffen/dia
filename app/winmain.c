@@ -12,6 +12,7 @@
 
 #include "app_procs.h"
 #include "interface.h"
+#include "dia_dirs.h"
 
 /* In case we build this as a windowed application */
 
@@ -27,7 +28,12 @@ WinMain (struct HINSTANCE__ *hInstance,
 	 char               *lpszCmdLine,
 	 int                 nCmdShow)
 {
+  gchar *loader_path = NULL;
+
   dia_redirect_console ();
+  
+  loader_path = dia_get_data_directory("etc\\gtk-2.0\\gdk-pixbuf.loaders");
+  g_setenv("GDK_PIXBUF_MODULE_FILE", loader_path, TRUE);
   
   app_init (__argc, __argv);
 
@@ -40,6 +46,8 @@ WinMain (struct HINSTANCE__ *hInstance,
   
   gtk_main ();
 
+  g_free(loader_path);
+  
   return 0;
 }
 

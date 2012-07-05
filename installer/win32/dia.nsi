@@ -1,9 +1,9 @@
 ; Dia -- an diagram creation/manipulation program
-; Copyright (C) 1998-2011 Alexander Larsson, Lars Clausen and others
+; Copyright (C) 1998-2012 Alexander Larsson, Lars Clausen and others
 ;  
 ; dia-installer.nsi : Nullsoft Installation System (NSIS) script
 ; Copyright (C) 2000-2004 Herman Bloggs, Steffen Macke
-; Copyright (C) 2005-2011 Steffen Macke <sdteffen@sdteffen.de>
+; Copyright (C) 2005-2012 Steffen Macke <sdteffen@sdteffen.de>
 ;  
 ; This program is free software; you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -103,10 +103,10 @@ XPStyle On
   
 VIAddVersionKey "ProductName" "Dia for Windows"
 VIAddVersionKey "CompanyName" "The Dia Developers"
-VIAddVersionKey "LegalCopyright" "(c) 2003-2011 Alexander Larsson and others"
+VIAddVersionKey "LegalCopyright" "(c) 2003-2012 Alexander Larsson and others"
 VIAddVersionKey "FileDescription" "Dia for Windows Installer"
-VIAddVersionKey "FileVersion" "0.97.2.0"
-VIProductVersion "0.97.2.0"
+VIAddVersionKey "FileVersion" "0.97.2.2"
+VIProductVersion "0.97.2.2"
 
 ;--------------------------------
 ;Modern UI Configuration
@@ -282,13 +282,13 @@ ${File} "..\..\" "COPYING"
 ${SetOutPath} "$INSTDIR\bin"
 ; jEdit replacement: (^.*\\)(.*)$ 
 ; \${File} "$1" "$2"
-${File} "..\..\build\win32\bin\" "dia.exe"
-${File} "..\..\build\win32\bin\" "diaw.exe"
+${File} "..\..\app\" "dia.exe"
+${File} "..\..\app\" "diaw.exe"
 ${File} "..\..\app\" "dia-win-remote.exe"
-${File} "..\..\build\win32\bin\" "dia-app.dll"
+${File} "..\..\app\" "dia-app.dll"
 ${File} "..\..\..\bin\" "libart_lgpl_2-2.dll"
 ${File} "..\..\..\bin\" "libcairo-2.dll"
-${File} "..\..\build\win32\bin\" "libdia.dll"
+${File} "..\..\lib\" "libdia.dll"
 ${File} "..\..\..\bin\" "iconv.dll"
 ${File} "..\..\..\bin\" "libintl.dll"
 ${File} "..\..\..\bin\" "libxml2.dll"
@@ -2421,23 +2421,23 @@ ${File} "..\..\..\lib\gtk-2.0\2.10.0\engines\" "libwimp.dll"
 ;${File} "..\..\..\lib\gtk-2.0\2.10.0\immodules\" "im-ti-er.dll"
 ;${File} "..\..\..\lib\gtk-2.0\2.10.0\immodules\" "im-ti-et.dll"
 ;${File} "..\..\..\lib\gtk-2.0\2.10.0\immodules\" "im-viqr.dll"
-${SetOutPath} "$INSTDIR\lib\gtk-2.0\2.10.0\loaders"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-ani.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-bmp.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-gif.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-icns.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-ico.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-jpeg.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-pcx.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-png.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-pnm.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-ras.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-tga.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-tiff.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-wbmp.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-xbm.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "libpixbufloader-xpm.dll"
-${File} "..\..\..\lib\gtk-2.0\2.10.0\loaders\" "svg_loader.dll"
+${SetOutPath} "$INSTDIR\lib\gdk-pixbuf-2.0\2.10.0\loaders"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-ani.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-bmp.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-gif.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-icns.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-ico.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-jpeg.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-pcx.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-png.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-pnm.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-ras.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-tga.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-tiff.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-wbmp.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-xbm.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "libpixbufloader-xpm.dll"
+${File} "..\..\..\lib\gdk-pixbuf-2.0\2.10.0\loaders\" "svg_loader.dll"
 
 SetOutPath "$INSTDIR\bin"
 FileOpen $0 "$INSTDIR\bin\gdk-pixbuf-query-loaders.bat" w
